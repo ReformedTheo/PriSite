@@ -10,10 +10,10 @@
     text-decoration: none;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    --primary-color-: #D991BA;
-    --primary-bl-: #5386E4;
-    --secondary-bl-: #4C4B63;
-    --secondary-pk-: #EBB9DF;
+    --primary-color-: #ef99bc;
+    --primary-bl-: #aec5ee;
+    --secondary-bl-: #454777;
+    --secondary-pk-: #F9D9F0;
     --terciary-pk-: #F5D5ED;
 }
 
@@ -27,7 +27,9 @@ html{
 }
 
 body{
-    background: var(--secondary-pk-);
+    background-image: url(imgs/background-stars.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff;
 }
 /* Home section */
@@ -79,7 +81,7 @@ section{
 }
 
 span{
-    color: var(--primary-bl-);
+    color: var(--primary-color-);
 }
 
 .home-bio h1{
@@ -89,7 +91,8 @@ span{
 
 .home-bio p{
   font-size: 1.5rem;
-  padding: 1rem 0;  
+  padding: 1rem 0;
+  font-weight: 400; 
 }
 
 .profile-pic img{
@@ -124,12 +127,12 @@ span{
 }
 
 .social-media a:hover{
-    color: var(--primary-bl-);
-    box-shadow: 0 0 1rem var(--primary-bl-);
+    color: var(--primary-color-);
+    box-shadow: 0 0 1rem var(--primary-color-);
 }
 .btn{
     display: inline-block;
-    background: var(--primary-bl-);
+    background: var(--primary-color-);
     margin: 2rem 0;
     padding: 1rem 2.5rem;
     border-radius: 1.3rem;
@@ -140,14 +143,117 @@ span{
 }
 
 .btn:hover{
-    color: var(--primary-bl-);
-    background-color: var(--secondary-bl-);
-    box-shadow: 0 0 1rem var(--primary-bl-);
+    color: var(--secondary-bl-);
+    background-color: var(--secondary-pk-);
+    box-shadow: 0 0 1rem var(--primary-color-);
 }
 /* About section */
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.heading{
+    font-size: 3.3rem;
+    text-align: center;
+    margin: 4rem 0;
+}
+.about-items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
 
+.about-resume h3{
+    font-size: 2.3rem;
+}
+.about-text p{
+    font-size: 1.8rem;
+
+}
 /* Skills section  */
+
+.skills{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.skills-items{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+}
+.skill-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.skill-card:hover{
+    border-radius: 1rem solid;
+    transform: scale(1.05);
+}
+
+.skill-card .bx{
+    font-size: 8rem;
+    transform: 0.4s ease;
+}
+
+.skill-card .bx:hover{
+    color: var(--primary-color-);
+}
+
+.skill-card h3{
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+.skill-card p{
+    text-align: center;
+    font-size: 1.3rem;
+    opacity: 0.5;
+}
 /* Projects section */
+
+
+
+
 /* Contact section */
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+}
+
+form{
+    display: grid;
+    row-gap: 1rem;
+}
+form input,
+textarea{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--secondary-bl-);
+    background: var(--terciary-pk-);
+    border-radius: 1rem;
+    resize: none;
+}
 /* Footer section */
+.footer{
+    padding: 2rem 10%;
+    text-align: center;
+    font-size: 1rem;
+}
+hr{
+    margin: 1rem;
+    border-bottom: thin solid #fff;
+}
+
 /* Responsive section */
