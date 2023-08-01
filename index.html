@@ -8,6 +8,31 @@
     <title>PriSentation Site</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
+    <!-- emailJS section -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("RXQkFSwS-65wsd-D1");
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact_form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+
 </head>
 
 <body>
@@ -29,7 +54,7 @@
             <h3>Oi! Meu nome é</h3>
             <h1>Prisca,</h1>
             <h3>sou uma <span class="animated-text"></span></h3>
-            <p> Represento a w7m E-Sports, e tenho uma paixão por criar  e vestir meus próprios cosplays!<br>
+            <p> Represento a w7m E-Sports, e tenho uma paixão por criar e vestir meus próprios cosplays!<br>
                 Compartilhe suas paixões com o mundo também. <br>
                 Vista-se do que sonhar, assim como eu! ♡</p>
             <div class="social-media">
@@ -54,16 +79,19 @@
         <div class="about-items">
             <div class="about-resume">
                 <h3> Cosplays, Cosmaking & Redes Sociais</h3>
-                <a href="#" class="btn">Baixar Portifolio</a>
+                <a href="#" class="btn" id="btn-about">Baixar Portifolio</a>
             </div>
             <div class="about-text">
                 <p>
-                    Hello, Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iusto molestias quidem et
-                    non
-                    quos cum vitae odio mollitia voluptatum. Repellendus ut, fugit reiciendis dolorem nam dolorum
-                    blanditiis, inventore eligendi sapiente <br> quia sunt laboriosam hic. Deserunt cum, sint numquam
-                    incidunt impedit neque sit earum. Autem sint praesentium totam rem? Inventore nostrum nihil velit
-                    fuga maxime reprehenderit blanditiis recusandae quidem cum.
+                    Meu nome é Priscila, tenho 21 anos, atualmente moro em Belo Horizonte e faço Design de Moda na UFMG. <br>
+                    Sou cosplayer e cosmaker, e desde muito nova sou apaixonada em Games e Cultura Pop no geral. <br>
+
+                    Sou uma pessoa muito comunicativa, criativa e artística. Durante a pandemia senti falta de me
+                    conectar com pessoas e, por isso, em 2021 comecei a fazer lives na Twitch e me apaixonei por esse
+                    meio. <br>
+
+                    Desde então, tenho trabalhado para aumentar meu alcance e conseguir atingir mais pessoas com minha
+                    arte e positividade.
                 </p>
             </div>
         </div>
@@ -127,18 +155,20 @@
         </div>
     </section>
     <!-- Contact section -->
-    <secction class="contact" id="contact">
+    <section class="contact" id="contact">
         <div class="heading">
             <h2>Encomende seu <span>Cosplay Sob Medida</span></h2>
         </div>
 
-        <form action="#" class="form">
-            <input type="text" placeholder="Seu nome">
-            <input type="text" placeholder="Seu E-mail">
-            <textarea name="" id="" cols="30" rows="6" placeholder="Breve descrição do cosplay desejado"></textarea>
+        <form onsubmit="SendMail(); reset();" class="form" id="contact_form">
+            <input id="name" type="text" placeholder="Seu nome">
+            <input id="email" type="text" placeholder="Seu E-mail">
+            <input id="phone" type="text" placeholder="Seu Telefone">
+            <textarea name="" id="message" cols="30" rows="6"
+                placeholder="Breve descrição do cosplay desejado"></textarea>
             <input type="submit" class="btn" value="Enviar">
         </form>
-    </secction>
+    </section>
     <!-- Footer section -->
 
     <footer class="footer">
@@ -147,9 +177,7 @@
             <br>All rights reserved
         </p>
     </footer>
-
     <!--  Scroll reveal section -->
-
     <script src="https://unpkg.com/scrollreveal"></script>
     <!--  Typing animation -->
 

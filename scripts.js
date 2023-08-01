@@ -20,3 +20,23 @@ const animText =  new Typed ('.animated-text',{
     backDelay: 600,
     loop: true
 })
+
+function SendMail() {
+    var params = {
+    name : document.getElementById('name').value,
+    email : document.getElementById('email').value,
+    message : document.getElementById('message').value,
+    phone : document.getElementById('phone').value
+    }
+    emailjs.send("service_5feek41", "template_hjqkcyh", params).then(function(res){
+        alert("Email enviado com sucesso! Entraremos em contato em breve " + res.status)
+    })
+}
+const openPdfButton = document.getElementById('btn-about');
+
+openPdfButton.addEventListener('click', () => {
+    const pdfUrl = 'PrisPortifolio.pdf';
+
+    // Abre uma nova janela ou guia com o arquivo .pdf
+    window.open(pdfUrl, '_blank');
+});
